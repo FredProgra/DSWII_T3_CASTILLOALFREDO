@@ -1,11 +1,13 @@
 package edu.pe.DSWII_T3_CASTILLOALFREDO.Model.bd;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+
 @Entity
 @Table(name = "alumno")
 public class Alumno {
@@ -13,6 +15,8 @@ public class Alumno {
     private String idalumno;
     private String apealumno;
     private String nomalumno;
-    private String idesp;
+    @ManyToOne
+    @JoinColumn(name = "idesp")
+    private Especialidad especialidad;
     private String proce;
 }
